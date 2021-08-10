@@ -15,7 +15,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class ManageUserView(generics.RetrieveUpdateAPIView):
     serializer_class = UserSerializer
-    authentication_classes = TokenAuthentication
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     def get_object(self):
@@ -25,5 +25,5 @@ class ManageUserView(generics.RetrieveUpdateAPIView):
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    authentication_classes = TokenAuthentication
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
